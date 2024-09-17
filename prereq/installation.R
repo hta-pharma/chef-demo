@@ -1,0 +1,5 @@
+library(remotes)
+remotes::install_github("hta-pharma/ramnog")
+remotes::install_github("hta-pharma/chef")
+remotes::install_github("hta-pharma/chefCriteria")
+remotes::install_github("hta-pharma/chefStats")
