@@ -2,8 +2,9 @@ library(digest)
 
 ## Facilitate fetching SDTM data from: https://github.com/cdisc-org/sdtm-adam-pilot-project/blob/master/updated-pilot-submission-package/900172/m5/datasets/cdiscpilot01/analysis/adam/datasets/
 
-## Where to store ADAM data
+## Where to store ADAM data. Create if the directory doesn't exist
 data_path <- file.path("data")
+if (!dir.exists(data_path)) {dir.create(data_path)}
 
 sdtm_files <- c("adae.xpt",
                 "adsl.xpt")
@@ -21,7 +22,7 @@ file_hashes <- mapply(function(path) {
     },
     error = function(cond) {
         print(paste0(basename(path), "does not seem to exist. Downloading it now."))
-        download.file(paste0("https://github.com/cdisc-org/sdtm-adam-pilot-project/raw/master/updated-pilot-submission-package/900172/m5/datasets/cdiscpilot01/analysis/adam/datasets/", basename(name)), name)
+        download.file(paste0("https://github.com/cdisc-org/sdtm-adam-pilot-project/raw/master/updated-pilot-submission-package/900172/m5/datasets/cdiscpilot01/analysis/adam/datasets/", basename(path)), path)
         digest(path, algo = "sha256", file = TRUE)
     })}, xpt_files )
 
