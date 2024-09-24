@@ -7,3 +7,6 @@ chef::stage_pipeline("cdisc_pilot")
 
 ## Run the pipeline
 tar_make()
+
+## Load results
+tar_load(ep_stat)
