@@ -1,0 +1,3 @@
+pipeline_cdisc_pilot:
+  script: pipeline/pipeline_cdisc_pilot.R
+  store: pipeline/pipeline_cdisc_pilot
