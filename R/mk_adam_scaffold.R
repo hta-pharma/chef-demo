@@ -11,3 +11,7 @@ mk_adae_template <- function(study_metadata){
     adae_out <- merge(adsl, adae[, c(setdiff(names(adae), names(adsl)), "USUBJID"), with =
                                                                                 F], by = "USUBJID", all = TRUE)
 }
+
+mk_adsl_template <- function(study_metadata){
+    adsl <- data.table::as.data.table(haven::read_xpt("data/adsl.xpt"))
+}
